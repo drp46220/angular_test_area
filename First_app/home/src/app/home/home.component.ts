@@ -23,7 +23,7 @@ import { HousingLocation } from '../housinglocation';
       *ngFor="let housingLocation of housingLocationList"
         [housingLocation]="housingLocation">
       </app-housing-location>
-      <div> <!-- ngFor is like a for loop that fills data from interface into multiple components --> </div>
+      <div> <!-- ngFor dynamically fills data into multiple templates from a component --> </div>
     </section>
   `,
   // get styles from this .css file
