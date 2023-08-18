@@ -17,7 +17,9 @@ import { HousingLocationComponent } from '../housing-location/housing-location.c
         <button class="primary" type="button">Search</button>
       </form>
     </section>
-    <section
+    <section class="result">
+      <app-housing-location></app-housing-location>
+    </section>
   `,
   // get styles from this .css file
   styleUrls: ['./home.component.css'],
