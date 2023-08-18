@@ -19,7 +19,11 @@ import { HousingLocation } from '../housinglocation';
       </form>
     </section>
     <section class="results">
-      <app-housing-location [housingLocation]="housingLocation"></app-housing-location>
+      <app-housing-location
+      *ngFor="let housingLocation of housingLocationList"
+        [housingLocation]="housingLocation">
+      </app-housing-location>
+      <div> <!-- ngFor is like a for loop that fills data from interface into multiple components --> </div>
     </section>
   `,
   // get styles from this .css file
