@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
   selector: 'app-root',
   standalone: true,
   imports: [
+    // import home.component from './home/home.component to use in the template <app-home></app-home>
+    // basically drops whatever is in the template for the home component into this component
     HomeComponent,
   ],
   template: `

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule],
+  // input form and search button. *no functionality yet*
   template: `
     <section>
       <form>
