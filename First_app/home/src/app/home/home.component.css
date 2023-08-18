@@ -1,40 +1,45 @@
-/* .results {
+/* adds formatting to the results of he search */
+/* displayes in a grid */
+.results {
     display: grid;
     column-gap: 14px;
     row-gap: 14px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
     margin-top: 50px;
     justify-content: space-around;
+}
+
+/* width = 30% of screen with small rounded corners*/
+input[type="text"] {
+  border: solid 1px var(--primary-color);
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 4px;
+  display: inline-block;
+  width: 30%;
+}
+/* input form and button are both same height at 10px */
+
+/* not sure why the button isnt purple like in the tutorial. displaying white*/
+/* made it a black button so its visible on the screen */
+button {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(black);
+  color: white;
+  border-radius: 8px;
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .results {
+      grid-template-columns: repeat(2, 1fr);
   }
-  
   input[type="text"] {
-    border: solid 1px var(--primary-color);
-    padding: 10px;
-    border-radius: 8px;
-    margin-right: 4px;
-    display: inline-block;
-    width: 30%;
+      width: 70%;
   }
-  
-  button {
-    padding: 10px;
-    border: solid 1px var(--primary-color);
-    background: var(--primary-color);
-    color: white;
-    border-radius: 8px;
+}
+@media (max-width: 499px) {
+  .results {
+      grid-template-columns: 1fr;
   }
-  
-  @media (min-width: 500px) and (max-width: 768px) {
-    .results {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    input[type="text"] {
-        width: 70%;
-    }   
-  }
-  
-  @media (max-width: 499px) {
-    .results {
-        grid-template-columns: 1fr;
-    }    
-  } */
+}

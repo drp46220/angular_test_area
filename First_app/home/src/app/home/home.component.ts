@@ -9,11 +9,12 @@ import { CommonModule } from '@angular/common';
   template: `
     <section>
       <form>
-        <input type="text" placeholder="Filter by city">
+        <input type="text" placeholder="placeholding test">
         <button class="primary" type="button">Search</button>
       </form>
     </section>
   `,
+  // get styles from this .css file
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {}
+export class HomeComponent { }
