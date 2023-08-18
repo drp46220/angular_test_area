@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-housing-location-component',
+  selector: 'app-housing-location',
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
       housing-location-component works!
     </p>
   `,
-  styleUrls: ['./housing-location-component.component.css']
+  styleUrls: ['./housing-location.component.css']
 })
-export class HousingLocationComponentComponent {
+export class HousingLocationComponent {
 
 }
