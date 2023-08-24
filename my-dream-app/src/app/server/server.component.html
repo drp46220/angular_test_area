@@ -1,0 +1,4 @@
+<p
+    [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{online: serverStatus === 'online'}">
+    {{ 'server' }} with ID {{ serverID }} is {{ getServerStatus() }}</p>

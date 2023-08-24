@@ -1,0 +1,89 @@
+<!-- <ol>
+    <li>Add a Input field which updates a property ('username') via Two-Way-Binding</li>
+    <li>Output the username property via String Interpolation (in a paragraph below the input)</li>
+    <li>Add a button which may only be clicked if the username is NOT an empty string</li>
+    <li>Upon clicking the button, the username should be reset to an empty string</li>
+</ol>
+
+<p>input username please</p>
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)] = "username">
+
+<p>{{ username }}</p>
+
+<button class="btn btn-primary"
+    [disabled]="!username"
+    (click)="resetInputForm()">Reset
+</button> -->
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ol>
+          <li>Add A button which says 'Display Details'</li>
+          <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
+          <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+          <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
+          <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+<button
+    class="btn btn-primary"
+    (click)="toggleDisplay()">Display Details
+</button>
+
+<p *ngIf="isDisplayed">hello this is stuff</p>
+
+<div
+    *ngFor="let logItem of log"
+    [ngStyle]="{'background-color':logItem > 5 ? 'lightblue' : 'transparent'}"
+    [ngClass]="{'white-text': logItem > 5 }">
+    >{{ logItem }}</div>
+
+<!-- <p *ngFor="let clicks of buttonClicks"></p> -->
+
+<!--
+<h1> Example of Toggle a Div on Click on a Button using Angular /h1>
+<button (click)=toggleDisplayDiv() >Toggle display Div</button>
+<div [hidden]="isShowDiv">This Div is from Javatpoint.com.</div>/div> -->
+
+<!-- <p>only show this when button is pressed</p> -->
+
+<!-- <hr>
+<label>Server Name</label> -->
+<!-- <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"
+    >
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName"
+    >
+<p>{{ serverName }}</p> -->
+<!-- <p>wait 2 seconds for button to be clickable </p> -->
+<!-- <p>display server name on button click</p>
+<button class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()">Add Server
+</button>
+
+<p *ngIf="serverCreated; else noServer">created server name is {{ serverName }}</p>
+<ng-template #noServer>
+    <p>no server created</p>
+</ng-template>
+<div>
+    <p>{{ serverCreationStatus }}</p>
+    property binding<p [innerText] = "allowNewServer"></p>
+</div> -->
+<!-- (string interpolation)<p> {{ allowNewServer }} </p>
+<hr>
+output value of a property
+<app-server *ngFor="let server of servers"></app-server> -->
