@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <app-new-account *ngFor="let acc of activeUsers; let i = index" [user]="acc" [id]="i"></app-new-account>
+      <hr>
+      <app-account *ngFor="let acc of inactiveUsers; let i = index" [user]="acc" [id]="i"></app-account>
+    </div>
+  </div>
+</div>
