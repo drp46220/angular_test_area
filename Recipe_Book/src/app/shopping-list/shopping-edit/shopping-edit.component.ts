@@ -24,6 +24,11 @@ export class ShoppingEditComponent implements OnInit {
     this.shoppingListService.deleteIngredient(removeIngredient);
   }
 
+  onClear() {
+    const clearIngredients = this.shoppingListService.getIngredients();
+    this.shoppingListService.clearIngredients(clearIngredients);
+  }
+
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit() {

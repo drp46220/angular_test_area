@@ -32,5 +32,10 @@ export class ShoppingListService {
     this.ingredientChanged.emit(this.ingredients.slice());
   }
 
+  clearIngredients(ingredients: Ingredient[]) {
+    this.ingredients.length = 0;
+    this.ingredientChanged.emit(this.ingredients.slice());
+  }
+
   constructor() { }
 }
