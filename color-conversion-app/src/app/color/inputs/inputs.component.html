@@ -1,0 +1,39 @@
+<div class="col-sm-10">
+    <div class="inputs-list">
+        <form name="color_form" #color_Form="ngForm">
+            <div class="row rgb">
+                <div class="col-sm-2 form-group">
+                    <label for="rgb">RGB</label>
+                    <div class="fieldwrapper" #color_input="ngInput">
+                        <input id="rbg" class="form-control" placeholder="r,g,b" id="rgbCode" name="RGBcode" type="text"
+                            value="">
+                    </div>
+                </div>
+            </div>
+            <div class="row cmyk">
+                <div class="col-sm-2 form-group">
+                    <label for="cmyk">CMYK</label>
+                    <div class="fieldwrapper">
+                        <input id="cnyk" class="form-control" placeholder="c,m,y,k" id="CMYKCode" name="CMYKcode"
+                            type="text" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="row hex">
+                <div class="col-sm-2 form-group">
+                    <label for="hex">HEX</label>
+                    <div class="fieldwrapper">
+                        <input id="hex" class="form-control" placeholder="#******" id="hexCode" name="HEXcode"
+                            type="text" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="row_clear">
+                <div class="col form-group">
+                    <input class="btn btn-danger" type="button" id="convertbutton" value="Clear" (click)="convert(#id)">
+                    <input class="btn btn-success" type="button" id="convertbutton" value="Convert" (click)="clear()">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
