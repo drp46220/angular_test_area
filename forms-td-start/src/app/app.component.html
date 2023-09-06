@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData">
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -10,10 +10,12 @@
             id="username"
             class="form-control"
             ngModel
-            name="username">
-            <!-- 'ngModule tells angular that this is a form control' -->
+            name="username"
+            required>
+            <!-- 'required' tells angular that this mustnt be empty on submission  -->
+            <!-- 'ngModule' tells angular that this is a form control -->
           </div>
-          <button class="btn btn-default" type="button">Suggest an Username</button>
+          <button class="btn btn-default" type="button" (click)="suggestUserName()">Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input
@@ -21,9 +23,11 @@
             id="email"
             class="form-control"
             ngModel
-            name="email">
-            <!-- 'ngModule tells angular that this is a form control' -->
-
+            name="email"
+            required
+            email>
+            <!-- 'email' tells angular this must be a valid email -->
+            <!-- 'ngModule' tells angular that this is a form control -->
           </div>
         </div>
         <div class="form-group">
@@ -33,13 +37,38 @@
           class="form-control"
           ngModel
           name="secret">
-          <!-- 'ngModule tells angular that this is a form control' -->
+          <!-- 'ngModule' tells angular that this is a form control -->
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <div>
+          <div class="form-group">
+            <textarea
+            name="questionAnswer"
+            rows="3"
+            class="form-control"
+            [(ngModel)]="answer"></textarea>
+            <p>your answer: {{ answer }}</p>
+          </div>
+        </div>
+        <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!f.valid">
+        <!-- 'disabled' only allows user to click submit if everthing is vaild-->
+        Submit</button>
       </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h2>your data</h2>
+      <p>username: {{ user.username }}</p>
+      <p>mail: {{ user.email }}</p>
+      <p>secret: {{ user.secret }}</p>
+      <p>answer: {{ user.answer }}</p>
     </div>
   </div>
 </div>
