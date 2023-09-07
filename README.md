@@ -1,1 +1,1 @@
-all projects are in /locations
+all projects are in the locations branch
