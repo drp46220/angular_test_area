@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 // })
 export class ShoppingListService {
   ingredientChanged = new Subject<Ingredient[]>();
-
+  startEdit = new Subject<number>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('apples', 5),
@@ -19,8 +19,17 @@ export class ShoppingListService {
     return this.ingredients.slice();
   }
 
+  getIngredient(i: number) {
+    return this.ingredients[i];
+  }
+
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
+    this.ingredientChanged.next(this.ingredients.slice());
+  }
+
+  updateIngredient(NewIngredient: Ingredient, index: number) {
+    this.ingredients[index] = NewIngredient;
     this.ingredientChanged.next(this.ingredients.slice());
   }
 
@@ -29,15 +38,10 @@ export class ShoppingListService {
     this.ingredientChanged.next(this.ingredients.slice());
   }
 
-  deleteIngredient(ingredient: Ingredient[]) {
-    this.ingredients.pop();
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
     this.ingredientChanged.next(this.ingredients.slice());
   }
 
-  clearIngredients(ingredients: Ingredient[]) {
-    this.ingredients.length = 0;
-    this.ingredientChanged.next(this.ingredients.slice());
-  }
-
-  constructor() { }
+  constructor() {}
 }
