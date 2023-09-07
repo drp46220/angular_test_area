@@ -1,10 +1,10 @@
-<div class="col-sm-10">
+<!-- <div class="col-sm-10">
     <div class="inputs-list">
         <form name="color_form" #color_Form="ngForm">
             <div class="row rgb">
                 <div class="col-sm-2 form-group">
                     <label for="rgb">RGB</label>
-                    <div class="fieldwrapper" #color_input="ngInput">
+                    <div class="fieldwrapper">
                         <input id="rbg" class="form-control" placeholder="r,g,b" id="rgbCode" name="RGBcode" type="text"
                             value="">
                     </div>
@@ -30,10 +30,78 @@
             </div>
             <div class="row_clear">
                 <div class="col form-group">
-                    <input class="btn btn-danger" type="button" id="convertbutton" value="Clear" (click)="convert(#id)">
-                    <input class="btn btn-success" type="button" id="convertbutton" value="Convert" (click)="clear()">
+                    <input class="btn btn-danger" type="button" id="convertbutton" value="Clear">
+                    <input class="btn btn-success" type="button" id="convertbutton" value="Convert">
                 </div>
             </div>
         </form>
+    </div>
+</div> -->
+
+<!-- <div class="container"> -->
+<div class="col-sm-10">
+    <div class="inputs-list">
+        <div id="color-data">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 form-group">
+                        <form (ngSubmit)="convertRGB()" #rgbForm="ngForm">
+                            <label for="rgb">RGB</label>
+                            <input type="text" id="rgbCode" class="form-control" ngModel name="rgbCode"
+                                placeholder="r,g,b" required>
+                            <button class="btn btn-success" type="submit" id="convertbutton" value="Convert"
+                                [disabled]="!rgbForm.dirty">Convert</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 form-group">
+                        <form (ngSubmit)="convertCMYK()" #cmykForm="ngForm">
+                            <label for="cmyk">CMYK</label>
+                            <input type="text" id="cmykCode" class="form-control" ngModel name="cmykCode"
+                                placeholder="c,m,y,k" required>
+                            <button class="btn btn-success" type="submit" id="convertbutton" value="Convert"
+                                [disabled]="!cmykForm.dirty">Convert</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 form-group">
+                        <form (ngSubmit)="convertHEX()" #hexForm="ngForm">
+                            <label for="hex">CMYK</label>
+                            <input type="text" id="hexCode" class="form-control" ngModel name="hexCode"
+                                placeholder="#******" required>
+                            <button class="btn btn-success" type="submit" id="convertbutton" value="Convert"
+                                [disabled]="!hexForm.dirty">Convert</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row_clear">
+            <div class="col form-group">
+                <button class="btn btn-danger" type="button" id="clearbutton" value="Clear"
+                    (click)="clear()">Clear</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="submitted">
+            <hr>
+            <div class="col-xs-4">
+                <h4>Conversions: (Rounded)</h4>
+                <p>RGB: {{ color_string.rgb_string }}</p>
+                <p>CMYK: {{ color_string.cmyk_string }}</p>
+                <p>HEX: {{ color_string.hex_string }}</p>
+            </div>
+            <hr>
+            <div class="col-xs-4" style="background-color: {{color_string.hex_string}};
+                border: 1px solid black;
+                height: 100px;">
+
+            </div>
+        </div>
     </div>
 </div>
