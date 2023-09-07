@@ -7,6 +7,7 @@ Test app for my graphic designer girlfriend
 # Deployment?
 
 I have yet to learn how to deploy so nothing is tested on that side yet
+I hope to get there soon
 
 # Will convert: `RGB <-> CMYK <-> HEX`
 
