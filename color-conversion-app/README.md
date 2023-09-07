@@ -1,5 +1,25 @@
 # ColorConversionApp
 
+This project is a simple app to convert colors
+Test app for my graphic designer girlfriend
+
+# Deployment?
+
+I have yet to learn how to deploy so nothing is tested on that side yet
+
+# Will convert: `RGB <-> CMYK <-> HEX`
+
+`* Fair warning *`
+Inputs are not checked but it will be obvious if the input is incorrect as the color view wont show anything
+
+Numbers will be rounded slightly but I do not think this will affect the color by any notiable amount unless your eyes are super sharp.
+
+- Convert Button:
+  The convert button will convert the desired space to the other spaces
+
+- Clear Button:
+  The clear button will reset all form inputs
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
 ## Development server
