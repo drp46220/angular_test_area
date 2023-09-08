@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators } from '@angular/forms';
 import { CMYK, HEX, RGB } from '../color-model';
 import { InputService } from './input.service';
 

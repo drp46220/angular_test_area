@@ -5,25 +5,48 @@ import { CMYK, HEX, RGB } from '../color-model';
   providedIn: 'root',
 })
 export class InputService {
+  // check if the input is 3 positive numbers 0-255 (inclusive)
+  rgb_validator =
+    /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\s*,\s*(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\s*,\s*(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+  cmyk_validator = /^(100|\d{1,2}|0)(?:\s*,\s*(100|\d{1,2}|0)){3}$/;
+
+  hex_validator = /^#([A-Fa-f0-9]{6})$/;
+
   string_to_rgb(s: string) {
-    return new RGB(
-      Number(s.split(',')[0]),
-      Number(s.split(',')[1]),
-      Number(s.split(',')[2])
-    );
+    if (s.match(this.rgb_validator)) {
+      return new RGB(
+        Number(s.split(',')[0]),
+        Number(s.split(',')[1]),
+        Number(s.split(',')[2])
+      );
+    } else {
+      alert('An input is not in rgb value -> 0-255 (inclusive)');
+      return new RGB(-1, -1, -1);
+    }
   }
 
   string_to_cmyk(s: string) {
-    return new CMYK(
-      Number(s.split(',')[0]),
-      Number(s.split(',')[1]),
-      Number(s.split(',')[2]),
-      Number(s.split(',')[3])
-    );
+    if (s.match(this.cmyk_validator)) {
+      return new CMYK(
+        Number(s.split(',')[0]),
+        Number(s.split(',')[1]),
+        Number(s.split(',')[2]),
+        Number(s.split(',')[3])
+      );
+    } else {
+      alert('An input is not a cmyk value format -> 0-100 (inclusive)');
+      return new CMYK(-1, -1, -1, -1);
+    }
   }
 
   string_to_hex(s: string) {
-    return new HEX(s);
+    if (s.match(this.hex_validator)) {
+      return new HEX(s);
+    } else {
+      alert('An input is not a valid hex format -> #RRGGBB');
+      return new HEX('-1');
+    }
   }
 
   rgb_to_cmyk(color: string) {

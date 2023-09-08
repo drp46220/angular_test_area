@@ -17,7 +17,7 @@ export class RGB {
         this.red = r;
       }
     } catch (error) {
-      throw new Error('not in range 0-255 (inclusive)');
+      throw new Error('red is not in range 0-255 (inclusive)');
     }
     // check green
     try {
@@ -26,7 +26,7 @@ export class RGB {
         this.green = g;
       }
     } catch (error) {
-      throw new Error('not in range 0-255 (inclusive)');
+      throw new Error('green is not in range 0-255 (inclusive)');
     }
     // check green
     try {
@@ -35,7 +35,7 @@ export class RGB {
         this.blue = b;
       }
     } catch (error) {
-      throw new Error('not in range 0-255 (inclusive)');
+      throw new Error('blue is not in range 0-255 (inclusive)');
     }
   }
 }
@@ -60,7 +60,7 @@ export class CMYK {
         this.cyan = c;
       }
     } catch (error) {
-      throw new Error('Not in range 0-100 (inclusive)');
+      throw new Error('cyan is not in range 0-100 (inclusive)');
     }
     // check megenta
     try {
@@ -69,7 +69,7 @@ export class CMYK {
         this.magenta = m;
       }
     } catch (error) {
-      throw new Error('Not in range 0-100 (inclusive)');
+      throw new Error('magenta is not in range 0-100 (inclusive)');
     }
     // check yellow
     try {
@@ -78,7 +78,7 @@ export class CMYK {
         this.yellow = y;
       }
     } catch (error) {
-      throw new Error('Not in range 0-100 (inclusive)');
+      throw new Error('yellow is not in range 0-100 (inclusive)');
     }
     // check black
     try {
@@ -87,7 +87,7 @@ export class CMYK {
         this.black = b;
       }
     } catch (error) {
-      throw new Error('Not in range 0-100 (inclusive)');
+      throw new Error('black is not in range 0-100 (inclusive)');
     }
   }
 }
