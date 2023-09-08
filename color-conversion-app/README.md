@@ -12,9 +12,11 @@ I hope to get there soon
 # Will convert: `RGB <-> CMYK <-> HEX`
 
 `* Fair warning *`
-Inputs are not checked but it will be obvious if the input is incorrect as the color view wont show anything
+~~Inputs are not checked but it will be obvious if the input is incorrect as the color view wont show anything~~
+Inputs are now checked and an alert will popup if inputs are invalid. It's a little glitchy but works.
+The CMYK color (K) black will show 'undefined' if invalid
 
-Numbers will be rounded slightly but I do not think this will affect the color by any notiable amount unless your eyes are super sharp.
+Numbers will be rounded slightly but I do not think this will affect the color by any noticeable amount unless your eyes are super sharp.
 
 - Convert Button:
   The convert button will convert the desired space to the other spaces
