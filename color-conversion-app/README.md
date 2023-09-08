@@ -19,7 +19,7 @@ The CMYK color (K) black will show 'undefined' if invalid
 Numbers will be rounded slightly but I do not think this will affect the color by any noticeable amount unless your eyes are super sharp.
 
 - Convert Button:
-  The convert button will convert the desired space to the other spaces
+  The convert button will convert the desired color space to the other spaces
 
 - Clear Button:
   The clear button will reset all form inputs
