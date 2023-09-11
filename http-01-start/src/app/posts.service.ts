@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from './post.model';
-import { Subject, map } from 'rxjs';
+import { Subject, catchError, map, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +36,11 @@ export class PostsService {
           Object.entries(resData).map(([id, post]) => ({ ...post, id }))
         )
       );
+    // catchError((errorRes) => {
+    //   // send to servers?
+    //   console.log(errorRes);
+    //   return throwError(() => new Error(errorRes));
+    // })
     // going to use subjects here.
     // since this will be a subject no need to subscribe here
     // the "subscription/ listening will be done in -> app.component.ts"

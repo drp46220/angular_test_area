@@ -73,6 +73,10 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
+  handleError() {
+    this.isError = null;
+  }
+
   // get the json data from FireBase
   // automatically store created id in the posted object as a array
   // subscribe and log to console
