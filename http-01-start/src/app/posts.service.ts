@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from './post.model';
-import { map } from 'rxjs';
+import { Subject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostsService {
+  error = new Subject();
   firebase_url: string =
     'https://ng-complete-guide-a2859-default-rtdb.firebaseio.com/';
 
@@ -15,9 +16,14 @@ export class PostsService {
     const postData: Post = { title: title, content: content };
     this.http
       .post<{ [key: string]: Post }>(this.firebase_url + 'posts.json', postData)
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
+      .subscribe(
+        (responseData) => {
+          console.log(responseData);
+        },
+        (error) => {
+          this.error.next(error.message);
+        }
+      );
   }
 
   fetchPosts() {
