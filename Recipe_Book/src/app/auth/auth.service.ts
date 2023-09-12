@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 
@@ -32,29 +32,39 @@ export class AuthService {
         password: pswrd,
         returnSecureToken: true,
       })
-      .pipe(
-        catchError((errorResponse) => {
-          let errorMessage = 'error occurred';
-          if (!errorResponse.error || !errorResponse.error.error) {
-            return throwError(() => new Error(errorMessage));
-          }
-          switch (errorResponse.error.error.message) {
-            case 'EMAIL_EXISTS':
-              errorMessage = 'email already exists ';
-            default:
-              errorMessage;
-          }
-          return throwError(() => new Error(errorMessage));
-        })
-      );
+      .pipe(catchError(this.errorHandle));
   }
 
   login(email: string, pswrd: string) {
-    return this.http.post<AuthResponseData>(this.signinKey + this.apiKey, {
-      email: email,
-      password: pswrd,
-      returnSecureToken: true,
-    });
+    return this.http
+      .post<AuthResponseData>(this.signinKey + this.apiKey, {
+        email: email,
+        password: pswrd,
+        returnSecureToken: true,
+      })
+      .pipe(catchError(this.errorHandle));
+  }
+
+  private errorHandle(errorResponse: HttpErrorResponse) {
+    let errorMessage = 'error occurred';
+    if (!errorResponse.error || !errorResponse.error.error) {
+      return throwError(() => new Error(errorMessage));
+    }
+    switch (errorResponse.error.error.message) {
+      case 'EMAIL_EXISTS':
+        errorMessage = 'email already exists ';
+        break;
+      case 'EMAIL_NOT_FOUND':
+        errorMessage = 'email not found';
+        break;
+      case 'INVALID_PASSWORD':
+        errorMessage = 'invalid password';
+        break;
+      default:
+        errorMessage;
+        break;
+    }
+    return throwError(() => new Error(errorMessage));
   }
 
   constructor(private http: HttpClient) {}
