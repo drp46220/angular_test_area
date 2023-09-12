@@ -8,7 +8,7 @@ import { map, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class DataStorageService {
-  FireBaseURL = '';
+  FireBaseURL = 'https://recipe-book-f6c8f-default-rtdb.firebaseio.com/';
 
   constructor(private http: HttpClient, private recipeService: RecipeService) {}
 
