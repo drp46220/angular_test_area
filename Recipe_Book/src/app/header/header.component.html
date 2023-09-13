@@ -4,15 +4,15 @@
             <a href="#" class="navbar-brand">Recipe Book</a>
         </div>
 
-        <div class="collapse navbar-collapse ">
-            <ul class="nav navbar-nav " *ngIf="isAuth">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" *ngIf="isAuth">
                 <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
                 <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
                 <li routerLinkActive="active"><a routerLink="/auth" *ngIf="!isAuth">Authenticate</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li *ngIf="isAuth">
-                    <a style="cursor: pointer;">Logout</a>
+                <li *ngIf="!isAuth">
+                    <a style="cursor: pointer;" (click)="Logout()">Logout</a>
                 </li>
                 <li class="dropdown" appDropdown *ngIf="isAuth">
                     <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span

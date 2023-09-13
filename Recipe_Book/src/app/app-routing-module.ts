@@ -10,6 +10,7 @@ import { RecipeResolveService } from './recipes/recipe-resolve.service';
 import { AuthComponent } from './auth/auth/auth.component';
 
 const appRoutes: Routes = [
+  { path: 'auth', component: AuthComponent },
   { path: '', redirectTo: '/recipes', pathMatch: 'full' }, // starting path on first load
   {
     path: 'recipes',
