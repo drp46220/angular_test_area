@@ -27,6 +27,8 @@ export class AuthService {
 
   apiKey = 'AIzaSyBNUvsG5N7mhCGLn5iJOla5J4mHUHsUJfA';
 
+  tokenTimer: any;
+
   user = new BehaviorSubject<User>(null);
 
   signUp(email: string, pswrd: string) {
@@ -69,9 +71,48 @@ export class AuthService {
       );
   }
 
+  autoLogin() {
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpiration: Date;
+    } = JSON.parse(localStorage.getItem('userData'));
+
+    if (!userData) {
+      return;
+    }
+
+    const user = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpiration)
+    );
+
+    if (user.token) {
+      this.user.next(user);
+      const duration = new Date(user.token).getTime() - new Date().getTime();
+      this.autoLogout(duration);
+    }
+  }
+
   logout() {
     this.user.next(null);
     this.router.navigate(['/auth']);
+
+    localStorage.removeItem('userData');
+
+    if (this.tokenTimer) {
+      clearTimeout(this.tokenTimer);
+    }
+    this.tokenTimer = null;
+  }
+
+  autoLogout(duration: number) {
+    this.tokenTimer = setTimeout(() => {
+      this.logout();
+    }, duration);
   }
 
   private authHandle(
@@ -83,6 +124,8 @@ export class AuthService {
     const date = new Date(new Date().getTime() + +expires * 1000);
     const user = new User(email, userid, token, date);
     this.user.next(user);
+    this.autoLogout(expires * 1000);
+    localStorage.setItem('userData', JSON.stringify(user));
   }
 
   private errorHandle(errorResponse: HttpErrorResponse) {
