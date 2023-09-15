@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewChore()">new chore</button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-xs-12">
+    <app-chore-item
+      *ngFor="let choreElement of chores; let i = index"
+      [chore]="choreElement"
+      [index]="i"
+    ></app-chore-item>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<!-- <p>recipe-edit works!</p> -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="choreForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!choreForm.valid"
+          >
+            Save
+          </button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-11">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-11">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="description"
+              rows="5"
+              formControlName="description"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-11">
+          <div class="form-group">
+            <label for="finishDate">Finish Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="finishDate"
+              rows="5"
+              formControlName="finishDate"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <!-- dynamic error alert -->
+    <ng-template appHelper></ng-template>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="!isLoading">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          ngModel
+          name="email"
+          required
+          email
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          ngModel
+          name="password"
+          required
+          minlength="6"
+        />
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          {{ loginMode ? "Login" : "Sign Up" }}
+        </button>
+        |
+        <button class="btn btn-primary" type="button" (click)="switchMode()">
+          Switch To {{ loginMode ? "Sign Up" : "Login" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
