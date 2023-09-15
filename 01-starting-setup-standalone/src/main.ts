@@ -5,4 +5,5 @@ import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, {
   providers: [provideStore()],
+  // an empty store is created to hold data
 });
