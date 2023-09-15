@@ -1,7 +1,13 @@
 <h1>Default (Automatic Change Detection)</h1>
 
 <div id="counter">
-  <p id="counter-output">Counter: {{ counter }}</p>
+  <!-- <p id="counter-output">Counter: {{ counter }}</p> 
+                                      {{ <signal> }} is the old way to display without signal -->
+
+  <p id="counter-output">Counter: {{ counter() }}</p>
+  <!-- counter is now a function so it needs () added
+  the value of the signal is returned-->
+
   <div id="counter-btns">
     <button (click)="decrement()">Decrement</button>
     <button (click)="increment()">Increment</button>
