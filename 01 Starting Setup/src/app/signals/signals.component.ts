@@ -1,5 +1,5 @@
 import { NgFor } from "@angular/common";
-import { Component, signal } from "@angular/core";
+import { Component, computed, signal, effect } from "@angular/core";
 
 @Component({
   selector: "app-signals",
@@ -13,6 +13,13 @@ export class SignalsComponent {
   // counter = 0; // not a signal
   counter = signal(0); //set variable equal to a signal and pass its desired value
   // counter is a signal now and has to be called as a function << counter() >> . its value will be returned
+
+  doubleCounter = computed(() => this.counter() * 2);
+  // updates value based on other signals
+
+  constructor() {
+    effect(() => console.log(this.counter()));
+  }
 
   increment() {
     // this.counter++; // standard increment without a signal
@@ -42,4 +49,7 @@ export class SignalsComponent {
     this.actions.update((oldActions) => [...oldActions, "decrements"]); // updates actions = oldActions + '<whatever>'
     // only use .push() with mutate and not with update
   }
+}
+function effects(arg0: () => any) {
+  throw new Error("Function not implemented.");
 }
