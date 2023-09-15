@@ -1,5 +1,5 @@
 import { NgFor } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, signal } from "@angular/core";
 
 @Component({
   selector: "app-signals",
@@ -9,7 +9,8 @@ import { Component } from "@angular/core";
 })
 export class SignalsComponent {
   actions: string[] = [];
-  counter = 0;
+  // counter = 0; // not a signal
+  counter = signal(0); //set variable equal to a signal and pass its desired value
 
   increment() {
     this.counter++;
