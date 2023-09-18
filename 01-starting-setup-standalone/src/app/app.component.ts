@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { CounterOutputComponent } from './counter-output/counter-output.component';
 import { CounterControlsComponent } from './counter-controls/counter-controls.component';
-import { StoreModule } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import { init } from './counter-store/counter.actions';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,10 @@ import { StoreModule } from '@ngrx/store';
   standalone: true,
   imports: [CounterOutputComponent, CounterControlsComponent],
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  constructor(private store: Store) {}
+
+  ngOnInit() {
+    this.store.dispatch(init());
+  }
+}
