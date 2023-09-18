@@ -2,7 +2,6 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideStore } from '@ngrx/store';
 
 import { AppComponent } from './app/app.component';
-import { count } from 'rxjs';
 import { counterReducer } from './app/counter-store/counter.reducer';
 
 bootstrapApplication(AppComponent, {
