@@ -6,7 +6,7 @@ const initialState = 0;
 // // not available for use in older versions of Angular
 export const counterReducer = createReducer(
   initialState,
-  on(increment, (state) => state + 1), // listen to an action and define what happens on when the action is called
+  on(increment, (state, action) => state + action.value), // listen to an action and define what happens on when the action is called
   on(decrement, (state) => state - 1)
 );
 // // add this to the global store in the main.ts file in a stand alone project.
