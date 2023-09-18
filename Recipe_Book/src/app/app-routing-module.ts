@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   {
     path: 'recipes',
     component: RecipesComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       { path: '', component: RecipeStartComponent },
       // if 'new' is after ':id' it will try to parse 'new' as an id and cause an error
