@@ -14,6 +14,9 @@ export const counterReducer = createReducer(
 // //         providers: [provideStore({ <reducer_name>: <your_reducer> })]
 
 // // older version
-// export function counterReducer(state = initialState) {
+// export function counterReducer(state = initialState, action: any) {
+//   if (action.type === '[Counter] Increment') {
+//     return state + action.value;
+//   }
 //   return state;
 // }
