@@ -23,6 +23,8 @@ import { AlertComponent } from './shared/alert/alert.component';
 import { HelperDirective } from './shared/helper/helper.directive';
 import { StoreModule } from '@ngrx/store';
 import * as fromAppState from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import * as fromAppState from './store/app.reducer';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(fromAppState.appReducer),
   ],
   providers: [

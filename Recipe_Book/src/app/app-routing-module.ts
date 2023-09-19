@@ -11,12 +11,11 @@ import { AuthComponent } from './auth/auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
-  { path: 'auth', component: AuthComponent },
   { path: '', redirectTo: '/recipes', pathMatch: 'full' }, // starting path on first load
   {
     path: 'recipes',
     component: RecipesComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       { path: '', component: RecipeStartComponent },
       // if 'new' is after ':id' it will try to parse 'new' as an id and cause an error

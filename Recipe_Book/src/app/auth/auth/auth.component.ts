@@ -2,6 +2,7 @@ import {
   Component,
   ComponentFactoryResolver,
   OnDestroy,
+  OnInit,
   ViewChild,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -10,13 +11,16 @@ import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { AlertComponent } from 'src/app/shared/alert/alert.component';
 import { HelperDirective } from 'src/app/shared/helper/helper.directive';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../store/app.reducer';
+import * as fromAuthActions from '../store/auth.actions';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
 })
-export class AuthComponent implements OnDestroy {
+export class AuthComponent implements OnInit, OnDestroy {
   loginMode = true;
   isLoading = false;
   error: string = null;
@@ -26,8 +30,17 @@ export class AuthComponent implements OnDestroy {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private c: ComponentFactoryResolver
+    private c: ComponentFactoryResolver,
+    private store: Store<fromApp.AppState>
   ) {}
+
+  ngOnInit() {
+    // setup subscription to the store
+    this.store.select('auth').subscribe((authState) => {
+      this.isLoading = authState.loading;
+      this.error = authState.authError;
+    });
+  }
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
@@ -41,25 +54,28 @@ export class AuthComponent implements OnDestroy {
 
     this.isLoading = true;
     if (this.loginMode) {
-      authObsv = this.authService.login(email, pswrd);
+      // authObsv = this.authService.login(email, pswrd);
+      this.store.dispatch(
+        new fromAuthActions.LoginStart({ email: email, pswrd: pswrd })
+      );
     } else {
       authObsv = this.authService.signUp(email, pswrd);
     }
 
-    authObsv.subscribe(
-      (resData) => {
-        console.log(resData);
-        this.isLoading = false;
-        this.router.navigate(['/recipes']);
-      },
-      (errorMessage) => {
-        console.log(errorMessage);
-        this.showErrorAlert(errorMessage);
-        this.error = errorMessage;
+    // authObsv.subscribe(
+    //   (resData) => {
+    //     console.log(resData);
+    //     this.isLoading = false;
+    //     this.router.navigate(['/recipes']);
+    //   },
+    //   (errorMessage) => {
+    //     console.log(errorMessage);
+    //     this.showErrorAlert(errorMessage);
+    //     this.error = errorMessage;
 
-        this.isLoading = false;
-      }
-    );
+    //     this.isLoading = false;
+    //   }
+    // );
 
     form.reset();
   }
