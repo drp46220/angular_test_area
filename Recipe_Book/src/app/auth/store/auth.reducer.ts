@@ -39,7 +39,7 @@ export function authReducer(
         user: null,
       };
 
-    case AuthAction.LOGIN:
+    case AuthAction.LOGIN: // overflows down into signup
     case AuthAction.SIGNUP:
       return {
         ...state,
