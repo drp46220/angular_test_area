@@ -1,15 +1,15 @@
 <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
         <!-- error alert popup-->
-        <!-- <div class="alert alert-danger" *ngIf="error">
+        <div class="alert alert-danger" *ngIf="error">
             <p>{{ error }}</p>
-        </div> -->
+        </div>
 
-        <!-- error alert made manually using ngIf-->
-        <!-- <app-alert [message]="error" *ngIf="error" (close)="onErrorHandle()"></app-alert>
+        <!-- error alert made manually using ngIf -->
+        <app-alert [message]="error" *ngIf="error" (close)="showErrorAlert()"></app-alert>
         <div *ngIf="isLoading" style="text-align: center;">
             <app-loading-spinner></app-loading-spinner>
-        </div> -->
+        </div>
 
         <!-- dynamic error alert -->
         <ng-template appHelper></ng-template>

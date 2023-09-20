@@ -18,7 +18,7 @@ export function authReducer(
   action: AuthAction.AuthActions
 ) {
   switch (action.type) {
-    case AuthAction.LOGIN: // user = the new user that logged in
+    case AuthAction.AUTH_SUCCESS: // user = the new user that logged in
       const user = new User(
         action.payload.email,
         action.payload.userID,
@@ -39,13 +39,14 @@ export function authReducer(
         user: null,
       };
 
-    case AuthAction.LOGIN_START:
+    case AuthAction.LOGIN:
+    case AuthAction.SIGNUP:
       return {
         ...state,
         authError: null,
         loading: true,
       };
-    case AuthAction.LOGIN_FAIL:
+    case AuthAction.AUTH_FAIL:
       return {
         ...state,
         authError: action.payload,
@@ -53,6 +54,11 @@ export function authReducer(
         loading: false,
       };
 
+    case AuthAction.CLEAR_ERROR:
+      return {
+        ...state,
+        authError: null, // no error anymore
+      };
     default:
       return state;
   }

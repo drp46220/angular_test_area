@@ -26,6 +26,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   error: string = null;
   @ViewChild(HelperDirective, { static: false }) alertHost: HelperDirective;
   closeSub: Subscription;
+  storeSub: Subscription;
 
   constructor(
     private authService: AuthService,
@@ -36,9 +37,12 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // setup subscription to the store
-    this.store.select('auth').subscribe((authState) => {
+    this.storeSub = this.store.select('auth').subscribe((authState) => {
       this.isLoading = authState.loading;
       this.error = authState.authError;
+      if (this.error) {
+        this.showErrorAlert(this.error);
+      }
     });
   }
 
@@ -56,27 +60,14 @@ export class AuthComponent implements OnInit, OnDestroy {
     if (this.loginMode) {
       // authObsv = this.authService.login(email, pswrd);
       this.store.dispatch(
-        new fromAuthActions.LoginStart({ email: email, pswrd: pswrd })
+        new fromAuthActions.Login({ email: email, pswrd: pswrd })
       );
     } else {
-      authObsv = this.authService.signUp(email, pswrd);
+      // authObsv = this.authService.signUp(email, pswrd);
+      this.store.dispatch(
+        new fromAuthActions.SignUp({ email: email, pswrd: pswrd })
+      );
     }
-
-    // authObsv.subscribe(
-    //   (resData) => {
-    //     console.log(resData);
-    //     this.isLoading = false;
-    //     this.router.navigate(['/recipes']);
-    //   },
-    //   (errorMessage) => {
-    //     console.log(errorMessage);
-    //     this.showErrorAlert(errorMessage);
-    //     this.error = errorMessage;
-
-    //     this.isLoading = false;
-    //   }
-    // );
-
     form.reset();
   }
 
@@ -85,7 +76,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   onErrorHandle() {
-    this.error = null;
+    this.store.dispatch(new fromAuthActions.ClearError());
   }
 
   private showErrorAlert(errorMessage: string) {
@@ -107,6 +98,9 @@ export class AuthComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.closeSub) {
       this.closeSub.unsubscribe();
+    }
+    if (this.storeSub) {
+      this.storeSub.unsubscribe();
     }
   }
 }
