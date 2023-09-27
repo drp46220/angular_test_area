@@ -6,10 +6,10 @@ import { PersonalGearComponent } from './Components/personal-gear/personal-gear.
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 
 const routes: Routes = [
-  { path: 'welcome', component: WelcomeComponent },
-  { path: 'new-climber', component: NewClimberComponent },
-  { path: 'belay', component: BelayComponent },
-  { path: 'personal-gear', component: PersonalGearComponent },
+  { path: 'welcome', component: WelcomeComponent }, // to welcome screen
+  { path: 'new-climber', component: NewClimberComponent }, // to new climber form
+  { path: 'belay', component: BelayComponent }, // to belay cert form
+  { path: 'personal-gear', component: PersonalGearComponent }, // to personal gear release form
   // Add more routes as needed
 ];
 
