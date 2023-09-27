@@ -2,19 +2,23 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Climbing Forms</a>
+        <a class="navbar-brand" routerLink="/welcome">
+            <img src="https://marvel-b1-cdn.bc0a.com/f00000000155119/www.ucmo.edu/offices/integrated-marketing-and-communications/internal-resources/fac-staff/ucm-branding/ucm-logos/images/mule-rt-b.png"
+                alt="" width="25px">
+            Climbing Forms
+        </a>
         <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText" mdbCollapse>
+        <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link active" routerLink="/new-climber">New Climber</a>
+                    <a class="nav-link" routerLink="/new-climber">New Climber</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/belay">Belay</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/personal-gear">Personal Gear</a>
                 </li>
             </ul>
