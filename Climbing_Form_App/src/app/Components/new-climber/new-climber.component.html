@@ -1,1 +1,168 @@
-<p>new-climber works!</p>
+<!-- <p>new-climber works!</p> -->
+
+<section class="agreement-container">
+    <h2>REMEMBER: YOU CAN GET HURT USING THESE FACILITIES AND EQUIPMENT. IF YOU
+        DO NOT WISH TO ACCEPT THE RISK INHERENT IN THE SPORT OF CLIMBING, THEN DO
+        NOT SIGN THIS WAIVER & DO NOT USE THESE CLIMBING FACILITIES.</h2>
+
+    <h1>Activity Agreement</h1>
+
+    <p>This Agreement must be signed by all adult Participants (18 years of age and older) to the University of Central
+        Missouri (“University”) Climbing Wall
+        (“Activity”), and by a parent or guardian of all minor Participants. A parent or guardian (referred to in the
+        document as “Parent”) signs and agrees for
+        himself/herself and on behalf of the minor Participant. In consideration of the services and participation in
+        the Activity, I, an adult Participant and/or
+        the Parent of a minor Participant, understand, acknowledge, represent and agree as follows:</p>
+
+    <br>
+
+    <h5>Activities</h5>
+    <p> Participant, and/or the parent of a minor Participant, represents, warrants and agrees that
+        Participant is in good health, and has no
+        condition (mental or physical) that might create risks to the Participant or others, and that Participant is not
+        under the influence of drugs or
+        alcohol or any substance that might in any way impair Participant's ability to engage in the Activities.
+        Participant will not engage in an activity
+        beyond his or her capabilities or otherwise endanger himself or herself or others while engaging in the
+        Activities, using the equipment, or moving
+        about the premises. Participant agrees to complete an orientation prior to engaging in climbing activities or
+        assisting a minor Participant.
+        Spectators are not required to complete an orientation, provided that Participant is not participating in
+        Activities or assisting a minor in
+        Activities.</p>
+
+    <br>
+
+    <h5>Assumption of Risk and Release of Claims. </h5>
+    <p> I do hereby acknowledge that I am fully aware of all risks and hazards
+        that may be directly or
+        inherently involved in this Activity, which include but are not limited to:
+    </p>
+
+    <ol type="a">
+        <!-- a -->
+        <li> falling from or off the climbing wall, boulder or rappelling tower, including while exiting </li>
+
+        <!-- b -->
+        <li> colliding with, hitting, or being hit by, other persons, dropped items,(including ropes and climbing
+            hardware or wall components), rock faces, holds and other projections (permanent or temporary), mats, the
+            floor or the ground
+        </li>
+
+        <!-- c -->
+        <li>rope or webbing abrasion and entanglement </li>
+
+        <!-- d -->
+        <li>the use and misuse of ropes, auto-belay devices, slings, harnesses, climbing hardware,
+            anchor points, or any part of the climbing wall or boulder structure
+        </li>
+
+        <!-- e -->
+        <li>slips, trips, falls and other trauma while moving about and
+            using the premises and fixtures, including exercise and fitness equipment
+        </li>
+
+        <!-- f -->
+        <li>the failure or malfunction of machines </li>
+
+        <!-- g -->
+        <li>the carelessness of other visitors, including participants in the Activities, and staff</li>
+
+        Visitor agrees to be attentive to the proper use of the auto belays and agrees and understands that it is
+        absolutely necessary to assure by all reasonable means that the climber is properly attached to the mechanism
+        before climbing.
+    </ol>
+
+    <p>Visitor agrees to be attentive to the proper use of the auto belays and agrees and
+        understands that it is absolutely necessary
+        to assure by all reasonable means that the climber is properly attached to the mechanism before climbing.
+        Participant understands, agrees and acknowledges that the risks described above and others are inherent in the
+        Activities, that is, they
+        cannot be eliminated without destroying the basic nature of the Activities and reducing their appeal and value.
+        That these and other risks may
+        result in all manner of injury, including slight injury or serious bodily injury, temporary or permanent
+        disability, paralysis, death, loss or damage
+        to property, illness, anxiety caused by heights and other phobias.
+        I do hereby assure the University that I either have adequate health insurance or have or will have adequate
+        funds necessary to provide for and
+        pay any medical costs that may be attendant as a result of injury to me from my participation in the Activity
+        and that I will indemnify and hold the
+        University and its governors, officers and employees, harmless. I also do hereby assure the University that
+        there are no health related reasons or
+        problems which preclude or restrict my participation in this Activity. I authorize the University of Central
+        Missouri to arrange emergency medical
+        care, solely at my expense, should it become necessary to do so in the event of injury.
+    </p>
+
+    <br>
+
+    <h5>Standards of Conduct.</h5>
+    <p> I will comply with the University's rules, standards and instructions for behavior. I agree that the University
+        has the right
+        to enforce the standards of conduct, in its sole judgment, and that it may impose sanctions, up to and including
+        denial of participation in the Activity,
+        for violating these standards or for any behavior detrimental to or incompatible with the interest, harmony, and
+        welfare of the University or others</p>
+
+    <br>
+
+    <h2>REMEMBER: YOU CAN GET HURT USING THESE FACILITIES AND EQUIPMENT. IF YOU
+        DO NOT WISH TO ACCEPT THE RISK INHERENT IN THE SPORT OF CLIMBING, THEN DO
+        NOT SIGN THIS WAIVER & DO NOT USE THESE CLIMBING FACILITIES.</h2>
+
+    <hr>
+
+    <div>
+        <h3>I have carefully read this Assumption of Risk and Release Form before signing it. No representations,
+            statements, or
+            inducements, oral or
+            written, apart from the foregoing written statement, have been made. </h3>
+        <p>
+            This agreement shall become effective only upon receipt by the University
+            and shall be governed by the laws of the state of Missouri, which shall be the forum for any lawsuits filed
+            under or
+            incident to this Release or to the
+            Activity.
+        </p>
+        <div ng-app>
+            <label>I have read </label>
+            <input type="checkbox" [(ngModel)]="check" />
+
+            <!-- hide the section if hte box is not checked. -->
+            <section class="form-container" *ngIf="check">
+                <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
+                    <div class=" row">
+                        <div class="col-sm-5 form-group">
+                            <label for="name">Name</label>
+                            *<input type="text" id="name" class="form-control" placeholder="Little Mule" name="name"
+                                ngModel required>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            <label for="id">700 Number</label>
+                            *<input type="number" id="id" class="form-control" placeholder="700123456" name="id" ngModel
+                                required pattern="^700\d{6}$">
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            <label for="birthday">Birthday</label>
+                            *<input type="date" id="birthday" class="form-control" name="birthday" ngModel required>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 form-group">
+                                <br>
+                                <label for="guardianName">Participant's Parent/Guardian</label>
+                                <input type="text" id="guardianName" class="form-control" placeholder="Big Mule"
+                                    name="guardianName" ngModel>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <button class="btn btn-primary" type="button" [disabled]="!dataForm.valid"
+                        (click)="onSubmit(dataForm)">Submit</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</section>
