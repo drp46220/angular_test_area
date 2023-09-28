@@ -11,6 +11,10 @@ import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { DatabaseCommsService } from './database-comms.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ClimbersDatabaseViewComponent } from './Components/climbers-database-view/climbers-database-view.component';
+import { ClimberListItemsComponent } from './Components/climbers-database-view/climber-list-items/climber-list-items.component';
+import { ClimberResolverService } from './Components/climber-resolver.service';
+import { ClimbersService } from './climbers.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
     BelayComponent,
     PersonalGearComponent,
     WelcomeComponent,
+    ClimbersDatabaseViewComponent,
+    ClimberListItemsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [DatabaseCommsService],
+  providers: [DatabaseCommsService, ClimbersService, ClimberResolverService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
