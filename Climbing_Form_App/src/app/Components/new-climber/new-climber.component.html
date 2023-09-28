@@ -126,7 +126,8 @@
             Activity.
         </p>
         <div ng-app>
-            <label>I have read </label>
+            <!-- `&nbsp` a small non-breaking (inline) space -->
+            <label>I have read </label>&nbsp;
             <input type="checkbox" [(ngModel)]="check" />
 
             <!-- hide the section if hte box is not checked. -->
