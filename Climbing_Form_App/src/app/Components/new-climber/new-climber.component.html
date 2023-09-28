@@ -132,22 +132,22 @@
             <!-- hide the section if hte box is not checked. -->
             <section class="form-container" *ngIf="check">
                 <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
-                    <div class=" row">
+                    <div class="row p-2">
                         <div class="col-sm-5 form-group">
                             <label for="name">Name</label>
                             *<input type="text" id="name" class="form-control" placeholder="Little Mule" name="name"
                                 ngModel required>
                         </div>
-                        <div class="col-sm-2 form-group">
+                        <div class="col-sm-3 form-group">
                             <label for="id">700 Number</label>
                             *<input type="number" id="id" class="form-control" placeholder="700123456" name="id" ngModel
                                 required pattern="^700\d{6}$">
                         </div>
-                        <div class="col-sm-2 form-group">
+                        <div class="col-sm-3 form-group">
                             <label for="birthday">Birthday</label>
                             *<input type="date" id="birthday" class="form-control" name="birthday" ngModel required>
                         </div>
-                        <div class="row">
+                        <div class=" row">
                             <div class="col-sm-5 form-group">
                                 <br>
                                 <label for="guardianName">Participant's Parent/Guardian</label>

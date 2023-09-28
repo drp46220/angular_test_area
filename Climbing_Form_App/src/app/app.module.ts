@@ -9,6 +9,7 @@ import { BelayComponent } from './Components/belay/belay.component';
 import { PersonalGearComponent } from './Components/personal-gear/personal-gear.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
+import { WaiversComponent } from './Components/waivers/waivers.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     BelayComponent,
     PersonalGearComponent,
     WelcomeComponent,
+    WaiversComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
