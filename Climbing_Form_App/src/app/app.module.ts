@@ -9,6 +9,8 @@ import { BelayComponent } from './Components/belay/belay.component';
 import { PersonalGearComponent } from './Components/personal-gear/personal-gear.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
+import { DatabaseCommsService } from './database-comms.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,8 @@ import { FormsModule } from '@angular/forms';
     PersonalGearComponent,
     WelcomeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [DatabaseCommsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

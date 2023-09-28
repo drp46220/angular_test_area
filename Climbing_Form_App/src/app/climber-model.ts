@@ -1,4 +1,4 @@
-export class climber {
+export class Climber {
   public name: string;
   public id: number;
   public birthday: Date;
