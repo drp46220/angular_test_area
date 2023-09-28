@@ -133,20 +133,28 @@
             <section class="form-container" *ngIf="check">
                 <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
                     <div class="row p-2">
+
+                        <!-- climber name -->
                         <div class="col-sm-5 form-group">
                             <label for="name">Name</label>
                             *<input type="text" id="name" class="form-control" placeholder="Little Mule" name="name"
                                 ngModel required>
                         </div>
+
+                        <!-- climber 700 number -->
                         <div class="col-sm-3 form-group">
                             <label for="id">700 Number</label>
                             *<input type="number" id="id" class="form-control" placeholder="700123456" name="id" ngModel
                                 required pattern="^700\d{6}$">
                         </div>
+
+                        <!-- climber birthday -->
                         <div class="col-sm-3 form-group">
                             <label for="birthday">Birthday</label>
                             *<input type="date" id="birthday" class="form-control" name="birthday" ngModel required>
                         </div>
+
+                        <!-- climber guardian -->
                         <div class=" row">
                             <div class="col-sm-5 form-group">
                                 <br>
@@ -159,6 +167,8 @@
 
                     <br>
 
+                    <!-- submit -->
+                    <!-- yet to have functionality -->
                     <button class="btn btn-primary" type="button" [disabled]="!dataForm.valid"
                         (click)="onSubmit(dataForm)">Submit</button>
                 </form>
