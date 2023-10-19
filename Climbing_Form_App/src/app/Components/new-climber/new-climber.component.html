@@ -128,31 +128,33 @@
         <div ng-app>
             <!-- `&nbsp` a small non-breaking (inline) space -->
             <label>I have read </label>&nbsp;
-            <input type="checkbox" [(ngModel)]="check" />
+
+            <input type="checkbox" [(ngModel)]="check" name="check" />
 
             <!-- hide the section if hte box is not checked. -->
             <section class="form-container" *ngIf="check">
-                <form (ngSubmit)="onSubmit(dataForm)" #dataForm="ngForm">
+                <form (ngSubmit)="onSubmit()" [formGroup]="dataFrom">
                     <div class="row p-2">
 
                         <!-- climber name -->
                         <div class="col-sm-5 form-group">
                             <label for="name">Name</label>
-                            *<input type="text" id="name" class="form-control" placeholder="Little Mule" name="name"
-                                ngModel required>
+                            *<input type="text" id="name" class="form-control" formControlName="name"
+                                placeholder="Little Mule" name="name" ngModel required>
                         </div>
 
                         <!-- climber 700 number -->
                         <div class="col-sm-3 form-group">
                             <label for="id">700 Number</label>
-                            *<input type="number" id="id" class="form-control" placeholder="700123456" name="id" ngModel
-                                required pattern="^700\d{6}$">
+                            *<input type="number" id="id" class="form-control" formControlName="id"
+                                placeholder="700123456" name="id" ngModel required pattern="^700\d{6}$">
                         </div>
 
                         <!-- climber birthday -->
                         <div class="col-sm-3 form-group">
                             <label for="birthday">Birthday</label>
-                            *<input type="date" id="birthday" class="form-control" name="birthday" ngModel required>
+                            *<input type="date" id="birthday" class="form-control" formControlName="birthday"
+                                name="birthday" ngModel required>
                         </div>
 
                         <!-- climber guardian -->
@@ -160,8 +162,8 @@
                             <div class="col-sm-5 form-group">
                                 <br>
                                 <label for="guardianName">Participant's Parent/Guardian</label>
-                                <input type="text" id="guardianName" class="form-control" placeholder="Big Mule"
-                                    name="guardianName" ngModel>
+                                <input type="text" id="guardianName" class="form-control" formControlName="guardian"
+                                    placeholder="Big Mule" name="guardianName" ngModel>
                             </div>
                         </div>
                     </div>
@@ -170,8 +172,8 @@
 
                     <!-- submit -->
                     <!-- yet to have functionality -->
-                    <button class="btn btn-primary" type="button" [disabled]="!dataForm.valid"
-                        (click)="onSubmit(dataForm)">Submit</button>
+                    <button class="btn btn-primary" type="button" [disabled]="!dataFrom.valid"
+                        (click)="onSubmit()">Submit</button>
                 </form>
             </section>
         </div>

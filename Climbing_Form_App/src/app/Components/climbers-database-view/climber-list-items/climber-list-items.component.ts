@@ -9,5 +9,4 @@ import { Input } from '@angular/core';
 })
 export class ClimberListItemsComponent {
   @Input() climber: Climber;
-  @Input() index: number;
 }

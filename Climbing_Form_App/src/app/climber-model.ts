@@ -3,17 +3,17 @@ export class Climber {
   public id: number;
   public birthday: Date;
   public dateCreated: Date;
-  public ofAge?: boolean;
-  public guardianName?: string;
+  public ofAge: boolean;
+  public guardianName: string;
 
   constructor(name: string, id: number, birthday: Date, gName: string) {
     var _now = new Date();
-    (this.name = name),
-      (this.id = id),
-      (this.birthday = birthday),
-      (this.dateCreated = _now),
-      (this.guardianName = gName),
-      (this.ofAge = yearsDiff(birthday, _now));
+    this.name = name;
+    this.id = id;
+    this.birthday = birthday;
+    this.dateCreated = _now;
+    this.guardianName = gName;
+    this.ofAge = yearsDiff(birthday, _now);
   }
 }
 

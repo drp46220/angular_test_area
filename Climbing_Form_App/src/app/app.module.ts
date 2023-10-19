@@ -8,7 +8,7 @@ import { NewClimberComponent } from './Components/new-climber/new-climber.compon
 import { BelayComponent } from './Components/belay/belay.component';
 import { PersonalGearComponent } from './Components/personal-gear/personal-gear.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatabaseCommsService } from './database-comms.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ClimbersDatabaseViewComponent } from './Components/climbers-database-view/climbers-database-view.component';
@@ -27,7 +27,13 @@ import { ClimbersService } from './climbers.service';
     ClimbersDatabaseViewComponent,
     ClimberListItemsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [DatabaseCommsService, ClimbersService, ClimberResolverService],
   bootstrap: [AppComponent],
 })

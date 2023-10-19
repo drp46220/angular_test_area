@@ -1,15 +1,7 @@
 <!-- <p>climber-list-items works!</p> -->
 <div>
-    <div class="pull-left">
-        <h3 class="list-group-item-heading">{{ climber.name }}</h3>
-        <p class="list-group-item-text">700 Number: {{ climber.id }}</p>
-        <p>Birthday: {{climber.birthday}}</p>
+    <div>
+        <strong>Name:</strong> {{ climber.name }} <strong>Climber ID:</strong> {{ climber.id }}
+        <strong>Birthday:</strong> {{ climber.birthday | date: 'MM-dd-YYYY' }}
+        <hr>
     </div>
-    <span class="pull-right">
-        <p>Date Created: {{ climber.dateCreated}}</p>
-        <!-- <div ngIf="{{climber.guardianName}}">
-            <p>guardianName: {{climber.guardianName}}</p>
-        </div> -->
-    </span>
-</div>
-<hr>

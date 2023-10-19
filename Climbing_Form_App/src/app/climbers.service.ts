@@ -9,7 +9,7 @@ export class ClimbersService {
   constructor() {}
 
   climbersChanged = new Subject<Climber[]>();
-  public climbers: Climber[] = [];
+  private climbers: Climber[] = [];
 
   setClimber(climbers: Climber[]) {
     this.climbers = climbers;
@@ -20,24 +20,10 @@ export class ClimbersService {
     return this.climbers.slice();
   }
 
-  getClimber(id: number) {
-    return this.climbers.slice()[id];
-  }
-
   addClimber(climber: Climber) {
     this.climbers.push(climber);
-    console.log('after push: ', this.climbers, this.climbers.slice());
+    console.log('after push: ', this.climbers.slice());
 
     this.climbersChanged.next(this.climbers.slice());
   }
-
-  // updateClimber(newClimber: Climber, index: number) {
-  //   this.climbers[index] = newClimber;
-  //   this.climbersChanged.next(this.climbers.slice());
-  // }
-
-  // deleteRecipe(index: number) {
-  //   this.climbers.splice(index, 1);
-  //   this.climbersChanged.next(this.climbers.slice());
-  // }
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ClimbersService } from '../climbers.service';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ClimbersService } from 'src/app/climbers.service';
+import { DatabaseCommsService } from 'src/app/database-comms.service';
 @Component({
   selector: 'app-new-climber',
   templateUrl: './new-climber.component.html',
@@ -8,14 +9,36 @@ import { ClimbersService } from '../climbers.service';
 })
 export class NewClimberComponent implements OnInit {
   check: boolean = false;
-  formData: any = {};
+  dataFrom: FormGroup<any>;
 
-  constructor(private climberService: ClimbersService) {}
+  constructor(
+    private climberService: ClimbersService,
+    private dataStorage: DatabaseCommsService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let climberName;
+    let climberBirthday;
+    let climberID;
+    let climberGuardian;
 
-  onSubmit(form: NgForm) {
-    console.log(form.value);
-    // this.climberService.addClimber();
+    this.dataFrom = new FormGroup({
+      name: new FormControl(climberName, Validators.required),
+      birthday: new FormControl(climberBirthday, Validators.required),
+      id: new FormControl(climberID, Validators.required),
+      guardian: new FormControl(climberGuardian),
+      dateCreated: new FormControl(new Date()),
+    });
+  }
+
+  onSubmit() {
+    // log climbers
+    console.log('on submit', this.dataFrom.value);
+
+    // add climber
+    this.climberService.addClimber(this.dataFrom.value);
+
+    // store the climbers
+    this.dataStorage.climberStore();
   }
 }

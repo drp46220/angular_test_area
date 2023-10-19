@@ -1,7 +1,6 @@
-<button class="btn btn-primary" (click)="Save()">save</button>
-<button class="btn btn-primary" (click)="Load()">fetch</button>
+<!-- <button class="btn btn-primary" (click)="Save()">save</button> -->
+<!-- <button class="btn btn-primary" (click)="Load()">fetch</button> -->
 
 <section class="agreement-container">
-    <app-climber-list-items *ngFor="let climberElement of climbers; let i = index" [climber]="climberElement"
-        [index]="i"></app-climber-list-items>
+    <app-climber-list-items *ngFor="let climber of climbers" [climber]="climber"></app-climber-list-items>
 </section>

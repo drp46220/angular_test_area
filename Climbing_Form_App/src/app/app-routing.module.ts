@@ -9,8 +9,8 @@ import { ClimbersDatabaseViewComponent } from './Components/climbers-database-vi
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent }, // to welcome screen
   { path: 'new-climber', component: NewClimberComponent }, // to new climber form
-  { path: 'belay', component: BelayComponent }, // to belay cert form
-  { path: 'personal-gear', component: PersonalGearComponent }, // to personal gear release form
+  // { path: 'belay', component: BelayComponent }, // to belay cert form
+  // { path: 'personal-gear', component: PersonalGearComponent }, // to personal gear release form
   { path: 'climbers', component: ClimbersDatabaseViewComponent }, // to personal gear release form
   // Add more routes as needed
 ];
