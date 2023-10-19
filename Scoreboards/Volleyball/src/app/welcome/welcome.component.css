@@ -1,0 +1,60 @@
+/* your-component.component.css */
+.card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  max-height: 1000px; /* Adjust the maximum height as needed */
+}
+
+.card-header {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px; /* Adjust the padding as needed */
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.card-body {
+  background-color: #f8f9fa;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px; /* Adjust the padding as needed */
+}
+
+.list-group {
+  list-style: none;
+  padding: 0;
+}
+
+.list-group-item {
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.team-info {
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
+.players-header {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.player {
+  margin: 5px 0; /* Reduce the vertical margin */
+  padding: 5px; /* Reduce the padding */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.player-info {
+  font-size: 12px;
+  margin-bottom: 5px; /* Reduce the bottom margin */
+}
+
+.player-info strong {
+  font-weight: bold;
+}

@@ -1,0 +1,44 @@
+<!-- <p>welcome works!</p> -->
+
+<!-- your-component.component.html -->
+<!-- your-component.component.html -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <h4>Team A</h4>
+                <div class="card-body">
+                    <p class="team-info"><strong>Team Name:</strong> {{ teamA.teamName }}</p>
+                    <p class="team-info"><strong>Coach:</strong> {{ teamA.coach.name }} (Age: {{ teamA.coach.age }})
+                    </p>
+                    <h5 class="players-header">Players</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item player" *ngFor="let player of teamA.players">
+                            <p class="player-info">{{ player.position }} / {{player.height}} </p>
+                            {{player.name}} #{{ player.number}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <h4>Team B</h4>
+                <div class="card-body">
+                    <p class="team-info"><strong>Team Name:</strong> {{ teamB.teamName }}</p>
+                    <p class="team-info"><strong>Coach:</strong> {{ teamB.coach.name }} (Age: {{ teamB.coach.age }})
+                    </p>
+                    <h5 class="players-header">Players</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item player" *ngFor="let player of teamB.players">
+                            <p class="player-info">{{ player.position }} / {{player.height}} </p>
+                            {{player.name}} #{{ player.number}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-success" style="margin-left: 46.5%;" (click)="Game_Start()">Start
+    Game</button>

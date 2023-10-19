@@ -1,0 +1,132 @@
+[
+  {
+    "teamName": "Spike Stars",
+    "coach": {
+      "name": "Alex Smith",
+      "age": 40
+    },
+    "players": [
+      {
+        "name": "John Smith",
+        "age": 22,
+        "height": "6'2\"",
+        "position": "Setter",
+        "number": 1
+      },
+      {
+        "name": "Emily Johnson",
+        "age": 24,
+        "height": "6'0\"",
+        "position": "Outside",
+        "number": 2
+      },
+      {
+        "name": "Michael Davis",
+        "age": 21,
+        "height": "6'5\"",
+        "position": "Middle",
+        "number": 3
+      },
+      {
+        "name": "Sarah Brown",
+        "age": 23,
+        "height": "6'1\"",
+        "position": "Opposite",
+        "number": 4
+      },
+      {
+        "name": "David Wilson",
+        "age": 22,
+        "height": "6'3\"",
+        "position": "Middle",
+        "number": 5
+      },
+      {
+        "name": "Ava Martinez",
+        "age": 24,
+        "height": "6'0\"",
+        "position": "Libero",
+        "number": 6
+      },
+      {
+        "name": "James Anderson",
+        "age": 20,
+        "height": "6'4\"",
+        "position": "Outside",
+        "number": 7
+      },
+      {
+        "name": "Olivia Taylor",
+        "age": 22,
+        "height": "6'1\"",
+        "position": "Opposite",
+        "number": 8
+      }
+    ]
+  },
+  {
+    "teamName": "Net Ninjas",
+    "coach": {
+      "name": "Brenda Johnson",
+      "age": 45
+    },
+    "players": [
+      {
+        "name": "Liam Rodriguez",
+        "age": 25,
+        "height": "6'2\"",
+        "position": "Setter",
+        "number": 11
+      },
+      {
+        "name": "Sophia Moore",
+        "age": 23,
+        "height": "6'0\"",
+        "position": "Opposite",
+        "number": 12
+      },
+      {
+        "name": "Noah Garcia",
+        "age": 24,
+        "height": "6'6\"",
+        "position": "Middle",
+        "number": 13
+      },
+      {
+        "name": "Emma Wilson",
+        "age": 21,
+        "height": "6'1\"",
+        "position": "Outside",
+        "number": 14
+      },
+      {
+        "name": "William Turner",
+        "age": 22,
+        "height": "6'4\"",
+        "position": "Middle",
+        "number": 15
+      },
+      {
+        "name": "Isabella Lewis",
+        "age": 26,
+        "height": "6'0\"",
+        "position": "Libero",
+        "number": 16
+      },
+      {
+        "name": "Oliver Jackson",
+        "age": 27,
+        "height": "6'3\"",
+        "position": "Outside",
+        "number": 17
+      },
+      {
+        "name": "Sophia Davis",
+        "age": 22,
+        "height": "6'2\"",
+        "position": "Outside",
+        "number": 18
+      }
+    ]
+  }
+]
