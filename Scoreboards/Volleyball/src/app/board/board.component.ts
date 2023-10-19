@@ -16,7 +16,8 @@ export class BoardComponent {
   homeScore: number = 0;
   awayScore: number = 0;
 
-  teamServing: Team;
+  teamServing: string[] = ['    ', '<---', '--->'];
+  serves;
 
   setResults: { home: number; away: number }[] = [];
   homeSetWins: number = 0;
@@ -39,6 +40,7 @@ export class BoardComponent {
 
   incrementHomeScore() {
     this.homeScore++;
+    this.serves = this.teamServing[1];
     if (this.isGame3) {
       // Check for the win condition in game 3 (15 points, win by 2)
       if (this.homeScore >= 15 && this.homeScore - this.awayScore >= 2) {
@@ -55,6 +57,7 @@ export class BoardComponent {
 
   incrementAwayScore() {
     this.awayScore++;
+    this.serves = this.teamServing[2];
     if (this.isGame3) {
       // Check for the win condition in game 3 (15 points, win by 2)
       if (this.awayScore >= 15 && this.awayScore - this.homeScore >= 2) {
@@ -73,6 +76,7 @@ export class BoardComponent {
   resetBoard() {
     this.homeScore = 0;
     this.awayScore = 0;
+    this.serves = this.teamServing[0];
   }
 
   recordSetResult() {
