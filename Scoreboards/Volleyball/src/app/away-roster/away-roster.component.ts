@@ -28,13 +28,14 @@ export class AwayRosterComponent {
 
       // Loop through the players in homeTeam and create new Player instances
       this.awayTeam.players.forEach((playerData) => {
-        const player = new Player();
-        player.name = playerData.name;
-        player.age = playerData.age;
-        player.height = playerData.height;
-        player.position = playerData.position;
-        player.number = playerData.number;
-        player.stats = new Stats();
+        const player = new Player(
+          playerData.name,
+          playerData.age,
+          playerData.height,
+          playerData.position,
+          playerData.number,
+          new Stats(0, 0, 0)
+        );
 
         // Push the new Player instance into the playersList
         this.playersList.push(player);
@@ -48,6 +49,11 @@ export class AwayRosterComponent {
     // Implement the stat behavior when a player is clicked
     console.log(`Player ${player.name} was clicked.`);
     this.statService.incrementAwayScore();
-    // this.statService.kill(player.name);
+
+    if (!player.stats) {
+      player.stats = { kills: 0, blocks: 0, digs: 0 };
+    }
+    player.stats.kills++;
+    console.log(`${player.name} has ${player.stats.kills} kills`);
   }
 }
