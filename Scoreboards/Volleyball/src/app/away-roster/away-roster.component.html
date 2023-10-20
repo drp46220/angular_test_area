@@ -1,1 +1,13 @@
-<p>away-roster works!</p>
+<!-- <p>away-roster works!</p> -->
+
+<div class="home-roster">
+    <h2>{{ awayTeam.teamName }}</h2>
+    <p>Coach: {{ awayTeam.coach.name }}</p>
+    <h5 class="players-header">Players</h5>
+    <ul class="list-group">
+        <li class="list-group-item player" *ngFor="let player of awayTeam.players" (click)="onPlayerClick(player)">
+            <p class="player-info">{{ player.position }} / {{player.height}} </p>
+            {{player.name}} #{{ player.number}}
+        </li>
+    </ul>
+</div>
