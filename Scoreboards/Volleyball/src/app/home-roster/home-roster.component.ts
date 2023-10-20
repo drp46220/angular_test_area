@@ -24,8 +24,7 @@ export class HomeRosterComponent {
   }
 
   onPlayerClick(player: any) {
-    // Implement the desired behavior when a player is clicked
+    // Implement the stat behavior when a player is clicked
     console.log(`Player ${player.name} was clicked.`);
-    // Add your logic here, e.g., to display more information about the player.
   }
 }

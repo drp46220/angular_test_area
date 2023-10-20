@@ -25,11 +25,34 @@ export class Player {
   height: string;
   position: string;
   number: number;
-  stats: Stats[];
+  stats: Stats;
 }
 
 export class Stats {
   kills: number;
   blocks: number;
   digs: number;
+
+  constructor() {
+    (this.kills = 0), (this.blocks = 0), (this.digs = 0);
+  }
+
+  kill() {
+    this.kills++;
+  }
+  getKills() {
+    return this.kills;
+  }
+  block() {
+    this.blocks++;
+  }
+  getBlocks() {
+    return this.blocks;
+  }
+  dig() {
+    this.digs++;
+  }
+  getDigs() {
+    return this.digs;
+  }
 }
