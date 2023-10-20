@@ -1,34 +1,41 @@
 <div class="scoreboard-container">
     <button class="btn btn-secondary" (click)="RosterView()">Go to Roster View</button>
     <div class="team-rosters">
+
+        <!-- home team roster shown -->
         <app-home-roster></app-home-roster>
+
         <div class="scoreboard-rectangle">
             <div class="home-score">
                 <div class="score-label">{{teamA.teamName}}</div>
-                <div class="score">{{homeScore}}</div>
+                <div class="score">{{this.statService.getHomeScore()}}</div>
             </div>
             <div class="serving-info">
                 <div class="serving-team">Serving</div>
-                <div class="serving-team-name">{{serves}}</div>
+                <div class="serving-team-name">{{this.statService.getServes()}}</div>
             </div>
             <div class="away-score">
                 <div class="score-label">{{teamB.teamName}}</div>
-                <div class="score">{{awayScore}}</div>
+                <div class="score">{{this.statService.getAwayScore()}}</div>
             </div>
             <div class="set-info">
                 <div class="set-label">Set 1</div>
-                <div class="set-score">{{setResults[0].home}} : {{setResults[0].away}}</div>
+                <div class="set-score">{{this.statService.setResults[0].home}} : {{this.statService.setResults[0].away}}
+                </div>
             </div>
             <div class="set-info">
                 <div class="set-label">Set 2</div>
-                <div class="set-score">{{setResults[1].home}} : {{setResults[1].away}}</div>
+                <div class="set-score">{{this.statService.setResults[1].home}} : {{this.statService.setResults[1].away}}
+                </div>
             </div>
             <div class="set-info">
                 <div class="set-label">Set 3</div>
-                <div class="set-score">{{setResults[2].home}} : {{setResults[2].away}}</div>
+                <div class="set-score">{{this.statService.setResults[2].home}} : {{this.statService.setResults[2].away}}
+                </div>
             </div>
         </div>
 
+        <!-- away team roster shown -->
         <app-away-roster></app-away-roster>
     </div>
     <div class="button-container">

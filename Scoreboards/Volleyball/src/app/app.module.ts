@@ -9,11 +9,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { BoardComponent } from './board/board.component';
 import { HomeRosterComponent } from './home-roster/home-roster.component';
 import { AwayRosterComponent } from './away-roster/away-roster.component';
+import { StatService } from './stats.service';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, BoardComponent, HomeRosterComponent, AwayRosterComponent],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    BoardComponent,
+    HomeRosterComponent,
+    AwayRosterComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [RosterService],
+  providers: [RosterService, StatService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
