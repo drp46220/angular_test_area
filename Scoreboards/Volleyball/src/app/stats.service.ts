@@ -102,13 +102,6 @@ export class StatService {
     this.setCount++;
   }
 
-  addPlayer(player: Player): void {
-    // Check if the player is already in the array to avoid duplicates
-    if (!this.players.find((p) => p.name === player.name)) {
-      this.players.push(player);
-    }
-  }
-
   getHomeScore() {
     return this.homeScore;
   }

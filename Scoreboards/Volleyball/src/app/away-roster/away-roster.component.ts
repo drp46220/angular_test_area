@@ -48,5 +48,6 @@ export class AwayRosterComponent {
     // Implement the stat behavior when a player is clicked
     console.log(`Player ${player.name} was clicked.`);
     this.statService.incrementAwayScore();
+    this.statService.
   }
 }
