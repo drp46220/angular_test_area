@@ -121,16 +121,4 @@ export class StatService {
   getSetCount() {
     return this.setCount;
   }
-
-  kill(player: Player) {
-    player.stats.kill();
-    console.log(player.name, 'got a kill');
-    console.log(`${player.name}, has ${player.stats.getKills()} kills`);
-  }
-  block(player: Player) {
-    player.stats.block();
-  }
-  dig(player: Player) {
-    player.stats.dig();
-  }
 }

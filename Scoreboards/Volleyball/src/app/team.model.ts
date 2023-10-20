@@ -26,33 +26,14 @@ export class Player {
   position: string;
   number: number;
   stats: Stats;
+
+  constructor() {
+    this.stats = { kills: 0, blocks: 0, digs: 0 }; // Initialize stats object with default values
+  }
 }
 
 export class Stats {
   kills: number;
   blocks: number;
   digs: number;
-
-  constructor() {
-    (this.kills = 0), (this.blocks = 0), (this.digs = 0);
-  }
-
-  kill() {
-    this.kills++;
-  }
-  getKills() {
-    return this.kills;
-  }
-  block() {
-    this.blocks++;
-  }
-  getBlocks() {
-    return this.blocks;
-  }
-  dig() {
-    this.digs++;
-  }
-  getDigs() {
-    return this.digs;
-  }
 }
