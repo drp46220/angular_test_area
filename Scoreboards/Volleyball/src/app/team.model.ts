@@ -25,4 +25,11 @@ export class Player {
   height: string;
   position: string;
   number: number;
+  stats: Stats[];
+}
+
+export class Stats {
+  kills: number;
+  blocks: number;
+  digs: number;
 }
