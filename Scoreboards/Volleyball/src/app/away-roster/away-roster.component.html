@@ -5,9 +5,16 @@
     <p>Coach: {{ awayTeam.coach.name }}</p>
     <h5 class="players-header">Players</h5>
     <ul class="list-group">
-        <li class="list-group-item player" *ngFor="let player of awayTeam.players" (click)="onPlayerClick(player)">
+        <li class="list-group-item player" *ngFor="let player of awayTeam.players">
             <p class="player-info">{{ player.position }} / {{player.height}} </p>
             {{player.name}} #{{ player.number}}
+            <div>
+                <button class="btn btn-outline-danger btn-sm" (click)="playerKill(player)">Kill</button>
+                <button class="btn btn-outline-warning btn-sm" (click)="playerAttack(player)">Attack</button>
+                <button class="btn btn-outline-success btn-sm" (click)="playerAssist(player)">Assist</button>
+                <button class="btn btn-outline-success btn-sm" (click)="playerBlock(player)">Block</button>
+                <button class="btn btn-outline-primary btn-sm" (click)="playerDig(player)">Dig</button>
+            </div>
         </li>
     </ul>
 </div>

@@ -1,0 +1,50 @@
+.btn-outline-danger {
+  border: 1px solid #dc3545; /* Change the border color as needed */
+  background: transparent;
+  color: #dc3545; /* Change the text color as needed */
+  padding: 0.25rem 0.5rem; /* Adjust padding for the desired button size */
+  border-radius: 0.25rem; /* Add rounded corners if desired */
+}
+.btn-outline-warning {
+  border: 1px solid #ffc107;
+  background: transparent;
+  color: #ffc107;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+.btn-outline-success {
+  border: 1px solid #198754;
+  background: transparent;
+  color: #198754;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+.btn-outline-primary {
+  border: 1px solid #0d6efd;
+  background: transparent;
+  color: #0d6efd;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Fill the button on hover */
+.btn-outline-danger:hover {
+  background-color: #dc3545; /* Replace with the color of the respective button */
+  border-color: #dc3545; /* Match the background color for consistency */
+  color: #fff; /* Change the text color on hover */
+}
+.btn-outline-warning:hover {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #fff;
+}
+.btn-outline-success:hover {
+  background-color: #198754;
+  border-color: #198754;
+  color: #fff;
+}
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}

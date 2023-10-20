@@ -46,10 +46,22 @@ export class Player {
 
 export class Stats {
   kills: number = 0;
+  attacks: number = 0;
+  assists: number = 0;
   blocks: number = 0;
   digs: number = 0;
 
-  constructor(kills: number, blocks: number, digs: number) {
-    (this.kills = kills), (this.blocks = blocks), (this.digs = digs);
+  constructor(
+    kills: number,
+    attacks: number,
+    assists: number,
+    blocks: number,
+    digs: number
+  ) {
+    (this.kills = kills),
+      (this.attacks = attacks),
+      (this.assists = assists),
+      (this.blocks = blocks),
+      (this.digs = digs);
   }
 }

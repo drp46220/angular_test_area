@@ -32,7 +32,7 @@ export class HomeRosterComponent {
           playerData.height,
           playerData.position,
           playerData.number,
-          new Stats(0, 0, 0)
+          new Stats(0, 0, 0, 0, 0)
         );
 
         // Push the new Player instance into the playersList
@@ -44,15 +44,40 @@ export class HomeRosterComponent {
     });
   }
 
-  onPlayerClick(player: any) {
-    // Implement the stat behavior when a player is clicked
-    console.log(`Player ${player.name} was clicked.`);
-    this.statService.incrementHomeScore();
-
+  emptyStats(player: Player) {
     if (!player.stats) {
-      player.stats = { kills: 0, blocks: 0, digs: 0 };
+      player.stats = { kills: 0, attacks: 0, assists: 0, blocks: 0, digs: 0 };
     }
+  }
+
+  playerKill(player: Player) {
+    this.emptyStats(player);
+    this.statService.incrementHomeScore();
     player.stats.kills++;
-    console.log(`${player.name} has ${player.stats.kills} kills`);
+    // console.log(`${player.name} has ${player.stats.kills} kills`);
+  }
+
+  playerAttack(player: Player) {
+    this.emptyStats(player);
+    player.stats.attacks++;
+    console.log(`${player.name} has ${player.stats.attacks} attacks`);
+  }
+
+  playerAssist(player: Player) {
+    this.emptyStats(player);
+    player.stats.assists++;
+    console.log(`${player.name} has ${player.stats.assists} assists`);
+  }
+
+  playerBlock(player: Player) {
+    this.emptyStats(player);
+    player.stats.blocks++;
+    console.log(`${player.name} has ${player.stats.blocks} blocks`);
+  }
+
+  playerDig(player: Player) {
+    this.emptyStats(player);
+    player.stats.digs++;
+    console.log(`${player.name} has ${player.stats.digs} digs`);
   }
 }
