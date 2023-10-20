@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Team } from './team.model';
+import { Player, Team } from './team.model';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +8,9 @@ export class StatService {
   teamData: Team[];
   teamA: Team;
   teamB: Team;
+
+  homePlayerList: Player[];
+  awayPlayerList: Player[];
 
   homeScore: number = 0;
   awayScore: number = 0;
@@ -26,6 +29,8 @@ export class StatService {
 
   isGame3 = false;
   setCount = 1;
+
+  players: Player[];
 
   incrementHomeScore() {
     this.homeScore++;
@@ -97,6 +102,13 @@ export class StatService {
     this.setCount++;
   }
 
+  addPlayer(player: Player): void {
+    // Check if the player is already in the array to avoid duplicates
+    if (!this.players.find((p) => p.name === player.name)) {
+      this.players.push(player);
+    }
+  }
+
   getHomeScore() {
     return this.homeScore;
   }
@@ -115,5 +127,19 @@ export class StatService {
 
   getSetCount() {
     return this.setCount;
+  }
+
+  getPlayer(player: Player) {
+    return player;
+  }
+
+  kill(player: Player) {
+    player.stats.kill();
+  }
+  block(player: Player) {
+    player.stats.block();
+  }
+  dig(player: Player) {
+    player.stats.dig();
   }
 }
