@@ -1,6 +1,6 @@
 <!-- <p>away-roster works!</p> -->
 
-<div class="away-roster" *ngIf="viewMode">
+<div class="away-roster" *ngIf="!viewMode">
     <h2>{{ awayTeam.teamName }}</h2>
     <p>Coach: {{ awayTeam.coach.name }}</p>
     <h5 class="players-header">Players</h5>
@@ -18,11 +18,47 @@
         </li>
     </ul>
 </div>
-<div class="away-roster" *ngIf="!viewMode">
 
+<div class="away-roster" *ngIf="viewMode">
+    <!-- stats chart -->
+    <table mat-table [dataSource]="playerStats" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Player Name </th>
+            <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="kills">
+            <th mat-header-cell *matHeaderCellDef> Kills </th>
+            <td mat-cell *matCellDef="let element"> {{ element.kills }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="attacks">
+            <th mat-header-cell *matHeaderCellDef> Attacks </th>
+            <td mat-cell *matCellDef="let element"> {{ element.attacks }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="assists">
+            <th mat-header-cell *matHeaderCellDef> Assists </th>
+            <td mat-cell *matCellDef="let element"> {{ element.assists }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="blocks">
+            <th mat-header-cell *matHeaderCellDef> Blocks </th>
+            <td mat-cell *matCellDef="let element"> {{ element.blocks }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="digs">
+            <th mat-header-cell *matHeaderCellDef> Digs </th>
+            <td mat-cell *matCellDef="let element"> {{ element.digs }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 </div>
+
 <div>
     <button class="btn btn-info" (click)="switchMode()">
-        {{ viewMode ? "Stats" : "Roster" }}
+        {{ !viewMode ? "Stats" : "Roster" }}
     </button>
 </div>

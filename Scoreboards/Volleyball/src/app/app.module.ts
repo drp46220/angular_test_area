@@ -11,6 +11,7 @@ import { HomeRosterComponent } from './home-roster/home-roster.component';
 import { AwayRosterComponent } from './away-roster/away-roster.component';
 import { StatService } from './stats.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeRosterComponent,
     AwayRosterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+  ],
   providers: [RosterService, StatService],
   bootstrap: [AppComponent],
 })
