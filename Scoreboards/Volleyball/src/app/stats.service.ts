@@ -122,12 +122,10 @@ export class StatService {
     return this.setCount;
   }
 
-  getPlayer(player: Player) {
-    return player;
-  }
-
   kill(player: Player) {
     player.stats.kill();
+    console.log(player.name, 'got a kill');
+    console.log(`${player.name}, has ${player.stats.getKills()} kills`);
   }
   block(player: Player) {
     player.stats.block();
