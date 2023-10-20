@@ -7,9 +7,11 @@ import { RosterService } from './roster.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BoardComponent } from './board/board.component';
+import { HomeRosterComponent } from './home-roster/home-roster.component';
+import { AwayRosterComponent } from './away-roster/away-roster.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, BoardComponent],
+  declarations: [AppComponent, WelcomeComponent, BoardComponent, HomeRosterComponent, AwayRosterComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [RosterService],
   bootstrap: [AppComponent],

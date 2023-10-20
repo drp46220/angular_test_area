@@ -5,6 +5,13 @@
   height: 100vh;
 }
 
+.team-rosters {
+  display: flex; /* Use flexbox layout to arrange the rosters horizontally */
+  align-items: center; /* Center the rosters vertically */
+  width: 100%; /* Occupy the entire width of the container */
+  justify-content: space-around; /* Add spacing around the gray box */
+}
+
 .button-container {
   display: flex;
   justify-content: center;
