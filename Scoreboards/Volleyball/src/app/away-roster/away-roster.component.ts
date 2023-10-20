@@ -18,6 +18,8 @@ export class AwayRosterComponent {
   awayTeam: Team;
   playersList: Player[];
 
+  viewMode: boolean = false;
+
   ngOnInit() {
     // read team data from the service
     this.rosterService.getTeamData().subscribe((data) => {
@@ -43,6 +45,10 @@ export class AwayRosterComponent {
       this.statService.homePlayerList = this.playersList;
       console.log('playerlist', this.playersList);
     });
+  }
+
+  switchMode() {
+    this.viewMode = !this.viewMode;
   }
 
   emptyStats(player: Player) {

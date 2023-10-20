@@ -10,6 +10,7 @@ import { BoardComponent } from './board/board.component';
 import { HomeRosterComponent } from './home-roster/home-roster.component';
 import { AwayRosterComponent } from './away-roster/away-roster.component';
 import { StatService } from './stats.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { StatService } from './stats.service';
     HomeRosterComponent,
     AwayRosterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
   providers: [RosterService, StatService],
   bootstrap: [AppComponent],
 })

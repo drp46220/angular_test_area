@@ -1,6 +1,6 @@
 <!-- <p>away-roster works!</p> -->
 
-<div class="home-roster">
+<div class="away-roster" *ngIf="viewMode">
     <h2>{{ awayTeam.teamName }}</h2>
     <p>Coach: {{ awayTeam.coach.name }}</p>
     <h5 class="players-header">Players</h5>
@@ -17,4 +17,12 @@
             </div>
         </li>
     </ul>
+</div>
+<div class="away-roster" *ngIf="!viewMode">
+
+</div>
+<div>
+    <button class="btn btn-info" (click)="switchMode()">
+        {{ viewMode ? "Stats" : "Roster" }}
+    </button>
 </div>
