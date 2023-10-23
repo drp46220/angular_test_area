@@ -49,6 +49,9 @@ export class StatService {
     }
   }
 
+  // keep stats in the stat service at a later date.
+  //fix weird bug that only displays player stats if the previous player has any kind of stat recorded.
+
   incrementAwayScore() {
     this.awayScore++;
     this.serves = this.teamServing[2];
