@@ -27,9 +27,7 @@ export class AwayRosterComponent {
     'digs',
   ];
 
-  playerStats: any[] = [];
-
-  viewMode: boolean = false;
+  viewModeAway: boolean = false;
 
   ngOnInit() {
     // read team data from the service
@@ -53,12 +51,12 @@ export class AwayRosterComponent {
         // Push the new Player instance into the playersList
         this.playersList.push(player);
       });
-      this.statService.homePlayerList = this.playersList;
+      // this.statService.homePlayerList = this.playersList;
     });
   }
 
-  switchMode() {
-    this.viewMode = !this.viewMode;
+  switchModeAway() {
+    this.viewModeAway = !this.viewModeAway;
   }
 
   emptyStats(player: Player) {

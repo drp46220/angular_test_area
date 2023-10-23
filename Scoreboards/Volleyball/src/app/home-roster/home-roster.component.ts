@@ -14,9 +14,20 @@ export class HomeRosterComponent {
     public statService: StatService
   ) {}
 
+  viewModeHome: boolean = false;
+
   teamData: Team[];
   homeTeam: Team;
   playersList: Player[];
+
+  displayedColumns: string[] = [
+    'name',
+    'kills',
+    'attacks',
+    'assists',
+    'blocks',
+    'digs',
+  ];
 
   ngOnInit() {
     // read team data from the service
@@ -39,9 +50,12 @@ export class HomeRosterComponent {
         this.playersList.push(player);
       });
 
-      this.statService.homePlayerList = this.playersList;
-      console.log('playerlist', this.playersList);
+      // this.statService.homePlayerList = this.playersList;
     });
+  }
+
+  switchModeHome() {
+    this.viewModeHome = !this.viewModeHome;
   }
 
   emptyStats(player: Player) {
