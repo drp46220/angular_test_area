@@ -50,18 +50,8 @@ export class AwayRosterComponent {
           new Stats(0, 0, 0, 0, 0)
         );
 
-        const playerStat = {
-          name: playerData.name,
-          kills: playerData.stats.kills,
-          attacks: playerData.stats.attacks,
-          assists: playerData.stats.assists,
-          blocks: playerData.stats.blocks,
-          digs: playerData.stats.digs,
-        };
-
         // Push the new Player instance into the playersList
         this.playersList.push(player);
-        this.playerStats.push(playerStat);
       });
       this.statService.homePlayerList = this.playersList;
     });

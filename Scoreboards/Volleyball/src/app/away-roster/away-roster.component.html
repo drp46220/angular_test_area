@@ -21,35 +21,35 @@
 
 <div class="away-roster" *ngIf="viewMode">
     <!-- stats chart -->
-    <table mat-table [dataSource]="playerStats" class="mat-elevation-z8">
+    <table mat-table [dataSource]="awayTeam.players" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Player Name </th>
+            <th mat-header-cell *matHeaderCellDef> {{displayedColumns[0]}} </th>
             <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
         </ng-container>
 
         <ng-container matColumnDef="kills">
-            <th mat-header-cell *matHeaderCellDef> Kills </th>
-            <td mat-cell *matCellDef="let element"> {{ element.kills }} </td>
+            <th mat-header-cell *matHeaderCellDef> {{displayedColumns[1]}} </th>
+            <td mat-cell *matCellDef="let element"> {{ element.stats.kills }} </td>
         </ng-container>
 
         <ng-container matColumnDef="attacks">
-            <th mat-header-cell *matHeaderCellDef> Attacks </th>
-            <td mat-cell *matCellDef="let element"> {{ element.attacks }} </td>
+            <th mat-header-cell *matHeaderCellDef> {{displayedColumns[2]}} </th>
+            <td mat-cell *matCellDef="let element"> {{ element.stats.attacks }} </td>
         </ng-container>
 
         <ng-container matColumnDef="assists">
-            <th mat-header-cell *matHeaderCellDef> Assists </th>
-            <td mat-cell *matCellDef="let element"> {{ element.assists }} </td>
+            <th mat-header-cell *matHeaderCellDef> {{displayedColumns[3]}} </th>
+            <td mat-cell *matCellDef="let element"> {{ element.stats.assists }} </td>
         </ng-container>
 
         <ng-container matColumnDef="blocks">
-            <th mat-header-cell *matHeaderCellDef> Blocks </th>
-            <td mat-cell *matCellDef="let element"> {{ element.blocks }} </td>
+            <th mat-header-cell *matHeaderCellDef> {{displayedColumns[4]}} </th>
+            <td mat-cell *matCellDef="let element"> {{ element.stats.blocks }} </td>
         </ng-container>
 
         <ng-container matColumnDef="digs">
-            <th mat-header-cell *matHeaderCellDef> Digs </th>
-            <td mat-cell *matCellDef="let element"> {{ element.digs }} </td>
+            <th mat-header-cell *matHeaderCellDef> {{displayedColumns[5]}} </th>
+            <td mat-cell *matCellDef="let element"> {{ element.stats.digs }} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
