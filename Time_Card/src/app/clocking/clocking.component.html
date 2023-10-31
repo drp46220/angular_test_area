@@ -3,4 +3,12 @@
 <div class="container">
     <p>Current Date and Time:</p>
     <p>{{ currentDateTime }}</p>
+
+    <div class="form">
+        <input type="text" name="userID" id="userID">
+        <div class="container">
+            <button class="btn btn-success" (click)="timeIn()">In</button> |
+            <button class="btn btn-danger" (click)="timeOut()">Out</button>
+        </div>
+    </div>
 </div>

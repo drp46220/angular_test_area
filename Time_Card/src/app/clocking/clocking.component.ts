@@ -19,4 +19,12 @@ export class ClockingComponent {
     const now = new Date();
     this.currentDateTime = now.toUTCString();
   }
+
+  timeIn() {
+    console.log(`time in ${this.getDateTime()} ${this.currentDateTime}`);
+  }
+
+  timeOut() {
+    console.log(`time out ${this.getDateTime()} ${this.currentDateTime}`);
+  }
 }
