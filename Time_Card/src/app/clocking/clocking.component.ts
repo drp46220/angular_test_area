@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class ClockingComponent {
   currentDateTime: string;
 
+  constructor() {}
+
   ngOnInit(): void {
     this.updateDateTime();
     setInterval(() => this.updateDateTime(), 1000); // Update every second
@@ -15,6 +17,6 @@ export class ClockingComponent {
 
   updateDateTime() {
     const now = new Date();
-    this.currentDateTime = now.toISOString(); // You can format this as per your requirement
+    this.currentDateTime = now.toUTCString();
   }
 }
