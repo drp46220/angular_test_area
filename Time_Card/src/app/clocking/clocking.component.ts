@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ClockingComponent {
   currentDateTime: string;
+  timeIn: string;
+  timeOut: string;
+  timeDiff: string;
 
   constructor() {}
 
@@ -20,11 +23,13 @@ export class ClockingComponent {
     this.currentDateTime = now.toUTCString();
   }
 
-  timeIn() {
+  clockIn() {
     console.log(`time in ${this.getDateTime()} ${this.currentDateTime}`);
   }
 
-  timeOut() {
+  clockOut() {
     console.log(`time out ${this.getDateTime()} ${this.currentDateTime}`);
   }
+
+  timeDifference() {}
 }
