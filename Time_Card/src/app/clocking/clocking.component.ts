@@ -11,11 +11,11 @@ export class ClockingComponent {
   constructor() {}
 
   ngOnInit(): void {
-    this.updateDateTime();
-    setInterval(() => this.updateDateTime(), 1000); // Update every second
+    this.getDateTime();
+    setInterval(() => this.getDateTime(), 1000); // Update every second
   }
 
-  updateDateTime() {
+  getDateTime() {
     const now = new Date();
     this.currentDateTime = now.toUTCString();
   }
