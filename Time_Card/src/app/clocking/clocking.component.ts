@@ -20,16 +20,28 @@ export class ClockingComponent {
 
   getDateTime() {
     const now = new Date();
-    this.currentDateTime = now.toUTCString();
+    return (this.currentDateTime = now.toUTCString());
   }
 
   clockIn() {
-    console.log(`time in ${this.getDateTime()} ${this.currentDateTime}`);
+    this.timeIn = this.getDateTime();
+    console.log(`time in ${this.timeIn}`);
   }
 
   clockOut() {
-    console.log(`time out ${this.getDateTime()} ${this.currentDateTime}`);
+    this.timeOut = this.getDateTime();
+    console.log(`time out: ${this.timeOut}`);
+    this.timeDifference();
   }
 
-  timeDifference() {}
+  timeDifference() {
+    const hours =
+      Math.abs(+new Date(this.timeIn) - +new Date(this.timeOut)) /
+      1000 / //milliseconds
+      60 / //seconds
+      60; //hours
+    this.timeDiff = hours.toFixed(4).toString(); // round 4 decimals then convert to string
+
+    console.log(`timeDIff: ${this.timeDiff}`);
+  }
 }
